@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://biaqaqvpnsm3b"]
+
+[ext_resource type="Script" uid="uid://cixc26fe8jiaq" path="res://start_screen.gd" id="1_ncxyx"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ncxyx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 223.0
+offset_right = 613.0
+offset_bottom = 246.0
+text = "Knight's Ruin"
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 296.0
+offset_right = 610.0
+offset_bottom = 327.0
+text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

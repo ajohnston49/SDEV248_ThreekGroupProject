@@ -98,4 +98,10 @@ func _start_attack():
 	attacking = false
 
 func _die():
+	
 	queue_free()
+
+	# Tell the blockade one skeleton has died
+	var blockade = get_tree().get_nodes_in_group("Blockade")
+	if blockade.size() > 0:
+		blockade[0].skeleton_died()
