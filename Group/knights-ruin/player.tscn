@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6ht144bclxvb"]
+[gd_scene load_steps=26 format=3 uid="uid://b6ht144bclxvb"]
 
 [ext_resource type="Texture2D" uid="uid://bej0cqmb4s3e7" path="res://Assets/Player/attack.png" id="1_b26j0"]
+[ext_resource type="Script" uid="uid://cq87oxfjh4g2l" path="res://player.gd" id="1_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cid4jrtqukbds" path="res://Assets/Player/idle.png" id="2_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://buer016q7v3o8" path="res://Assets/Player/run.png" id="9_op7ga"]
 
@@ -91,7 +92,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5tmop")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 8.0
 }, {
@@ -149,22 +150,37 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
-height = 66.0
+radius = 4.9889874
+height = 90.331406
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
-radius = 64.12488
+radius = 126.14278
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player", "player"]]
+position = Vector2(6, 0)
+disable_mode = 2
+collision_mask = 2
+script = ExtResource("1_hqtel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4tmhn")
 animation = &"attack"
-frame_progress = 0.77790093
+frame = 3
+frame_progress = 1.0
 
 [node name="walk_collide" type="CollisionShape2D" parent="."]
-scale = Vector2(2.3200002, 1.0837457)
+scale = Vector2(6.0132446, 0.9077685)
 shape = SubResource("CapsuleShape2D_i3pqv")
 
-[node name="attack_collide" type="CollisionShape2D" parent="."]
+[node name="HitDetector" type="Area2D" parent="." groups=["Player", "player"]]
+disable_mode = 2
+collision_layer = 2052
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetector"]
 shape = SubResource("CircleShape2D_hqtel")
-debug_color = Color(0.88205457, 0.26085398, 0.54567695, 0.41960785)
+debug_color = Color(0.9178032, 0.19699758, 0.524367, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true

@@ -112,7 +112,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Blockade" type="Node2D"]
+[node name="Blockade" type="Area2D"]
+scale = Vector2(1.0112039, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_tw277")
@@ -123,6 +124,7 @@ scale = Vector2(0.30052254, -0.7697223)
 shape = SubResource("RectangleShape2D_fdm35")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
-scale = Vector2(-3.5382771, 3.392368)
+rotation = -3.1415927
+scale = Vector2(3.5382771, -3.392368)
 sprite_frames = SubResource("SpriteFrames_m64ms")
 animation = &"splode"

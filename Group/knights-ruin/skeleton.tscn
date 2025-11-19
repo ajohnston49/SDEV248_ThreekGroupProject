@@ -1,9 +1,13 @@
 [gd_scene load_steps=36 format=3 uid="uid://cbo44dy1qpb6m"]
 
 [ext_resource type="Texture2D" uid="uid://cn0n5xvarlcj1" path="res://Assets/Skull/Skull_Attack.png" id="1_sv33q"]
+[ext_resource type="Script" uid="uid://cepyg7opoiekc" path="res://skeleton.gd" id="1_uaaco"]
 [ext_resource type="Texture2D" uid="uid://cv13x8owenkre" path="res://Assets/Skull/Skull_Guard.png" id="2_uaaco"]
 [ext_resource type="Texture2D" uid="uid://jdsrohy7j0v8" path="res://Assets/Skull/Skull_Idle.png" id="3_ymvsc"]
 [ext_resource type="Texture2D" uid="uid://2v3xjlg230hd" path="res://Assets/Skull/Skull_Run.png" id="4_rwpf0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt6ae"]
+size = Vector2(54, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ew5mc"]
 atlas = ExtResource("1_sv33q")
@@ -141,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d56fl")
 }],
-"loop": true,
+"loop": false,
 "name": &"skull_attack",
 "speed": 10.0
 }, {
@@ -167,7 +171,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yvw1e")
 }],
-"loop": true,
+"loop": false,
 "name": &"skull_block",
 "speed": 10.0
 }, {
@@ -224,27 +228,22 @@ animations = [{
 "speed": 11.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt6ae"]
-size = Vector2(54, 67)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ogqsf"]
-radius = 20.0
-height = 150.06906
-
-[node name="Skeleton" type="CharacterBody2D"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_8abc2")
-animation = &"skull_attack"
-frame_progress = 0.8089779
+[node name="Skeleton" type="CharacterBody2D" groups=["Enemy"]]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_uaaco")
 
 [node name="walk_collide" type="CollisionShape2D" parent="."]
 position = Vector2(1, -3.5)
+scale = Vector2(1.9613166, 1.1342987)
 shape = SubResource("RectangleShape2D_tt6ae")
 
-[node name="attack_collide" type="CollisionShape2D" parent="."]
-position = Vector2(-9.313226e-10, 9.000001)
-rotation = 1.5613245
-scale = Vector2(1.0720394, 1)
-shape = SubResource("CapsuleShape2D_ogqsf")
-debug_color = Color(0.45788026, 0.03327048, 0.771253, 0.41960785)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Enemy"]]
+sprite_frames = SubResource("SpriteFrames_8abc2")
+animation = &"skull_attack"
+frame = 6
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
