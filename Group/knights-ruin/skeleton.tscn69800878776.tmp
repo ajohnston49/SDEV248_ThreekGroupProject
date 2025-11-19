@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cbo44dy1qpb6m"]
+[gd_scene load_steps=36 format=3 uid="uid://cbo44dy1qpb6m"]
 
 [ext_resource type="Texture2D" uid="uid://cn0n5xvarlcj1" path="res://Assets/Skull/Skull_Attack.png" id="1_sv33q"]
 [ext_resource type="Script" uid="uid://cepyg7opoiekc" path="res://skeleton.gd" id="1_uaaco"]
@@ -228,9 +228,6 @@ animations = [{
 "speed": 11.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uaaco"]
-radius = 58.137768
-
 [node name="Skeleton" type="CharacterBody2D" groups=["Enemy"]]
 disable_mode = 2
 collision_layer = 2
@@ -252,5 +249,3 @@ frame_progress = 1.0
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
-shape = SubResource("CircleShape2D_uaaco")
-debug_color = Color(0.8760314, 0.2740014, 0.5364106, 0.41960785)
