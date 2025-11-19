@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://siy8wvm2mqe3"]
+[gd_scene load_steps=4 format=3 uid="uid://siy8wvm2mqe3"]
+
+[ext_resource type="Script" uid="uid://dqqu1qr1p0nqd" path="res://level_2_win.gd" id="1_veney"]
+[ext_resource type="Texture2D" uid="uid://dkutuwvqelasm" path="res://Assets/BigTreasureChest.png" id="2_b3at7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1qi5d"]
+font_color = Color(0.017732391, 0.017732391, 0.01773239, 1)
 
 [node name="Level2Win" type="CanvasLayer"]
+script = ExtResource("1_veney")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -619.9999
+offset_top = -3644.9998
+offset_right = -579.9999
+offset_bottom = -3604.9998
+scale = Vector2(245.8315, 146.58502)
+texture = ExtResource("2_b3at7")
+
+[node name="WinTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 538.0
+offset_bottom = 176.0
+scale = Vector2(2.141639, 4.01926)
+text = "The beast falls with a final roar.
+
+Beyond the chamber lies the relic — untouched, gleaming, waiting.
+
+But the knight is not alone...
+"
+label_settings = SubResource("LabelSettings_1qi5d")
+horizontal_alignment = 1

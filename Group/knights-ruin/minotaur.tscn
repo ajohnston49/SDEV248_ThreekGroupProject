@@ -1,9 +1,14 @@
-[gd_scene load_steps=55 format=3 uid="uid://duec66nsqxc6s"]
+[gd_scene load_steps=58 format=3 uid="uid://duec66nsqxc6s"]
 
 [ext_resource type="Texture2D" uid="uid://byg68tnu55koe" path="res://Assets/Minotaur/Minotaur_Attack.png" id="1_15rt5"]
+[ext_resource type="Script" uid="uid://6clpjsot4vni" path="res://minotaur.gd" id="1_u2y4b"]
 [ext_resource type="Texture2D" uid="uid://co5v1n78ca6dd" path="res://Assets/Minotaur/Minotaur_Guard.png" id="2_u2y4b"]
 [ext_resource type="Texture2D" uid="uid://dehhvrnh8cr6q" path="res://Assets/Minotaur/Minotaur_Idle.png" id="3_15340"]
 [ext_resource type="Texture2D" uid="uid://bmhux4yt5n3od" path="res://Assets/Minotaur/Minotaur_Walk.png" id="4_mh2nu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4a66"]
+radius = 8.897635
+height = 24.051039
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5n4i"]
 atlas = ExtResource("1_15rt5")
@@ -232,7 +237,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ny14h")
 }],
-"loop": true,
+"loop": false,
 "name": &"min_attack",
 "speed": 10.0
 }, {
@@ -357,27 +362,74 @@ animations = [{
 "speed": 13.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4a66"]
-radius = 8.897635
-height = 24.051039
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_go8hu"]
 radius = 8.802491
 
-[node name="Minotaur" type="CharacterBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2y4b"]
+bg_color = Color(0.0001250557, 0.00011217135, 9.485724e-05, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_crt6e")
-animation = &"min_attack"
-frame_progress = 0.30727112
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15340"]
+bg_color = Color(1, 0.35692284, 0.06681526, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.021434633, 0.021434639, 0.021434609, 1)
+shadow_color = Color(0.14406255, 0.14406255, 0.14406255, 0.6)
+shadow_size = 1
+shadow_offset = Vector2(1, 25)
+
+[node name="Minotaur" type="CharacterBody2D" groups=["Boss", "Enemy"]]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_u2y4b")
 
 [node name="walk_collide" type="CollisionShape2D" parent="."]
 position = Vector2(3, -7)
-scale = Vector2(-4.8327446, 5.2388587)
+rotation = 3.1415927
+scale = Vector2(4.8327446, -5.2388587)
 shape = SubResource("CapsuleShape2D_g4a66")
 
-[node name="attack_collide" type="CollisionShape2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Boss", "Enemy"]]
+sprite_frames = SubResource("SpriteFrames_crt6e")
+animation = &"min_attack"
+frame = 11
+frame_progress = 1.0
+
+[node name="AttackDetector" type="Area2D" parent="."]
+disable_mode = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
 position = Vector2(-3, 0)
-scale = Vector2(-13.752381, 11.285175)
+rotation = 3.1415927
+scale = Vector2(13.752381, -11.285175)
 shape = SubResource("CircleShape2D_go8hu")
 debug_color = Color(0.88723606, 0.31381315, 0.27456403, 0.41960785)
+
+[node name="BossHUDLayer" type="CanvasLayer" parent="."]
+
+[node name="BossHealthBar" type="ProgressBar" parent="BossHUDLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -528.0
+offset_top = 15.0
+offset_right = -524.0
+offset_bottom = 42.0
+grow_horizontal = 2
+scale = Vector2(270.806, 1.0425824)
+theme_override_styles/background = SubResource("StyleBoxFlat_u2y4b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_15340")
+max_value = 10.0
+step = 1.0
+value = 10.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="BossHUDLayer"]
+offset_left = 501.0
+offset_top = 44.0
+offset_right = 629.0
+offset_bottom = 67.0
+text = "Minatour Health"
+
+[connection signal="body_entered" from="AttackDetector" to="." method="_on_attack_detector_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ch1sygrw0lpx4"]
+[gd_scene load_steps=16 format=3 uid="uid://ch1sygrw0lpx4"]
 
 [ext_resource type="Texture2D" uid="uid://bq71oy41dff1t" path="res://Assets/spr_tileset_sunnysideworld_16px.png" id="1_3hls8"]
 [ext_resource type="PackedScene" uid="uid://cwrgbonof1wm6" path="res://blockade.tscn" id="2_ihfcg"]
@@ -5246,9 +5246,6 @@ texture = ExtResource("1_3hls8")
 [sub_resource type="TileSet" id="TileSet_ihfcg"]
 sources/0 = SubResource("TileSetAtlasSource_hn12h")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rka8t"]
-size = Vector2(105, 20)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ihfcg"]
 radius = 5.0
 height = 10.0
@@ -5283,11 +5280,6 @@ tile_set = SubResource("TileSet_ihfcg")
 format = 2
 layer_0/z_index = 1
 layer_0/tile_data = PackedInt32Array(29, 131072, 30, 30, 131072, 30, 65566, 131072, 31, 31, 131072, 30, 65567, 131072, 31, 196636, 720896, 3, 196637, 720896, 3, 196638, 720896, 3, 196639, 720896, 3, 131100, 720896, 4, 131101, 720896, 4, 131102, 720896, 4, 131103, 720896, 4, 28, 131072, 30, 65564, 131072, 31, 65565, 131072, 31)
-
-[node name="Win" type="CollisionShape2D" parent="."]
-position = Vector2(483, 28)
-scale = Vector2(1.0143273, 0.6520204)
-shape = SubResource("RectangleShape2D_rka8t")
 
 [node name="Blockade" parent="." instance=ExtResource("2_ihfcg")]
 position = Vector2(479.99997, 91.00001)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b6ht144bclxvb"]
+[gd_scene load_steps=29 format=3 uid="uid://b6ht144bclxvb"]
 
 [ext_resource type="Texture2D" uid="uid://bej0cqmb4s3e7" path="res://Assets/Player/attack.png" id="1_b26j0"]
 [ext_resource type="Script" uid="uid://cq87oxfjh4g2l" path="res://player.gd" id="1_hqtel"]
@@ -156,6 +156,25 @@ height = 90.331406
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 radius = 126.14278
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtel"]
+bg_color = Color(0.01773239, 0.017732395, 0.017732374, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.031201068, 0.00052029116, 0.0012772228, 1)
+shadow_color = Color(0.24840015, 0.24840018, 0.24840015, 0.6)
+shadow_size = 1
+shadow_offset = Vector2(1, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sweqy"]
+bg_color = Color(0.08382834, 0.7264907, 0, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.011087577, 0.011087581, 0.011087568, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sweqy"]
+
 [node name="Player" type="CharacterBody2D" groups=["Player", "player"]]
 position = Vector2(6, 0)
 disable_mode = 2
@@ -184,3 +203,28 @@ debug_color = Color(0.9178032, 0.19699758, 0.524367, 0.41960785)
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 733.0
+offset_top = 594.0
+offset_right = 737.0
+offset_bottom = 621.0
+scale = Vector2(101.825775, 0.8938969)
+theme_override_styles/background = SubResource("StyleBoxFlat_hqtel")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sweqy")
+max_value = 5.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="InteractionDetector" type="Area2D" parent="."]
+disable_mode = 2
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector"]
+scale = Vector2(13.329311, 12.860249)
+shape = SubResource("CircleShape2D_sweqy")
+debug_color = Color(0.19938412, 0.6215191, 0.45714295, 0.41960785)
