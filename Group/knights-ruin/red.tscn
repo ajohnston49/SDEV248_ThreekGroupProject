@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://bcyvl1je4u4f6"]
+
+[ext_resource type="Texture2D" uid="uid://cmyb5fhifv28k" path="res://Assets/RedKnight/red_attack.png" id="1_fx4mt"]
+[ext_resource type="Texture2D" uid="uid://ieldip61hqlg" path="res://Assets/RedKnight/red_run.png" id="2_icr0l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lpwq"]
+atlas = ExtResource("1_fx4mt")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6epr"]
+atlas = ExtResource("1_fx4mt")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t7kr"]
+atlas = ExtResource("1_fx4mt")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7aae"]
+atlas = ExtResource("1_fx4mt")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_073wb"]
+atlas = ExtResource("2_icr0l")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krotv"]
+atlas = ExtResource("2_icr0l")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hdr3"]
+atlas = ExtResource("2_icr0l")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlsyn"]
+atlas = ExtResource("2_icr0l")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw53k"]
+atlas = ExtResource("2_icr0l")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1wgs"]
+atlas = ExtResource("2_icr0l")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4mub"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lpwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6epr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t7kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7aae")
+}],
+"loop": true,
+"name": &"red_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_073wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krotv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hdr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlsyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw53k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1wgs")
+}],
+"loop": true,
+"name": &"red_run",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gbauf"]
+radius = 24.0
+height = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vb3dr"]
+radius = 60.671246
+
+[node name="Red" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q4mub")
+animation = &"red_attack"
+frame_progress = 0.9233477
+
+[node name="walk_collide" type="CollisionShape2D" parent="."]
+scale = Vector2(1.2192793, 1.3738886)
+shape = SubResource("CapsuleShape2D_gbauf")
+
+[node name="attack_collide" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vb3dr")
+debug_color = Color(0.6047585, 0.17331171, 0.2835108, 0.41960785)
