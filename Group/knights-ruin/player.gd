@@ -123,4 +123,4 @@ func take_damage(amount: int, attacker: Node2D) -> void:
 # --- Death ---
 func _die() -> void:
 	print("Player defeated!")
-	queue_free()
+	get_tree().change_scene_to_file("res://death_scene.tscn")

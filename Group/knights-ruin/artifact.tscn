@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5b82r"]
 
-[node name="Artifact" type="Area2D" groups=["Artifact"]]
+[node name="Artifact" type="StaticBody2D" groups=["Artifact"]]
 disable_mode = 2
 collision_layer = 31
 collision_mask = 47

@@ -92,7 +92,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i7aae")
 }],
-"loop": true,
+"loop": false,
 "name": &"red_attack",
 "speed": 5.0
 }, {
@@ -164,8 +164,7 @@ script = ExtResource("1_icr0l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q4mub")
-animation = &"red_idle"
-frame_progress = 0.41706565
+animation = &"red_attack"
 
 [node name="walk_collide" type="CollisionShape2D" parent="."]
 scale = Vector2(1.2192793, 1.3738886)

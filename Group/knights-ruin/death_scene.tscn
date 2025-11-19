@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://devln1vskj3ky"]
+
+[ext_resource type="Script" uid="uid://bxxahl01rcsc1" path="res://death_scene.gd" id="1_bea04"]
+
+[node name="DeathScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bea04")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 283.0
+offset_right = 632.0
+offset_bottom = 341.0
+text = "The Knight Died"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 442.0
+offset_right = 602.0
+offset_bottom = 473.0
+text = "Start Over"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
