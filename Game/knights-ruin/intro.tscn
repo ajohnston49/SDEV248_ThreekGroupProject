@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv4pceyiefqru"]
+
+[ext_resource type="Script" uid="uid://cpixv71gvytvh" path="res://intro.gd" id="1_s2ta7"]
+[ext_resource type="Texture2D" uid="uid://ck2w15t3oowhu" path="res://blockade.png" id="2_ayt76"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7a8ye"]
+font_color = Color(0.008249203, 0.016349513, 0.016330183, 1)
+
+[node name="Intro" type="CanvasLayer"]
+script = ExtResource("1_s2ta7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -7743.0
+offset_top = 5163.0005
+offset_right = -6564.0
+offset_bottom = 5905.0005
+rotation = -1.5731694
+scale = Vector2(8.114747, 18.66152)
+texture = ExtResource("2_ayt76")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 85.0
+offset_right = 687.0
+offset_bottom = 238.0
+scale = Vector2(1.672527, 3.2272437)
+text = "The knight descends into the cursed halls.
+
+Legends speak of a relic hidden deep within — guarded by the dead and the damned.
+
+He draws his blade. The trial begins.
+"
+label_settings = SubResource("LabelSettings_7a8ye")
+horizontal_alignment = 1
+
+[node name="IntroTimer" type="Timer" parent="."]
+wait_time = 2.659
+one_shot = true
+autostart = true
