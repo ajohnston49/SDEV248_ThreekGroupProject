@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://qo4ed4jxtlb2"]
+[gd_scene load_steps=22 format=3 uid="uid://qo4ed4jxtlb2"]
 
 [ext_resource type="Texture2D" uid="uid://bq71oy41dff1t" path="res://Assets/spr_tileset_sunnysideworld_16px.png" id="1_j8bo8"]
 [ext_resource type="Texture2D" uid="uid://bol5nouuk6vpf" path="res://Assets/TilesetDungeon.png" id="2_1jdk1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcyvl1je4u4f6" path="res://red.tscn" id="4_fmu3g"]
 [ext_resource type="PackedScene" uid="uid://hli38kbhrii" path="res://artifact.tscn" id="5_6p2dc"]
 [ext_resource type="PackedScene" uid="uid://cs4wftce3d54o" path="res://dialog_box.tscn" id="6_fmu3g"]
+[ext_resource type="AudioStream" uid="uid://j6ketld6sr6y" path="res://level3.mp3" id="7_fmu3g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ds5r"]
 texture = ExtResource("1_j8bo8")
@@ -7184,3 +7185,8 @@ shape = SubResource("RectangleShape2D_7ds5r")
 position = Vector2(567, 318)
 
 [node name="DialogBox" parent="." instance=ExtResource("6_fmu3g")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_fmu3g")
+autoplay = true
+parameters/looping = true

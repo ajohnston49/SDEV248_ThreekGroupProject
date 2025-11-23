@@ -86,13 +86,20 @@ func _start_attack() -> void:
 	attack_cooldown = 0.2
 	$AnimatedSprite2D.play("attack")
 
+	# Play hit sound (woosh)
+	if $HitSound:
+		$HitSound.play()
+
 	for body in $HitDetector.get_overlapping_bodies():
 		if body.is_in_group("Enemy") and body.has_method("take_damage"):
 			body.take_damage(1, self)
+			$EnemyHitSound.play()
 		elif body.is_in_group("Boss") and body.has_method("take_damage"):
 			body.take_damage(1, self)
+			$BossHitSound.play()
 		elif body.is_in_group("Red") and body.has_method("take_damage"):
 			body.take_damage(1, self)
+			$BossHitSound.play()
 
 	await $AnimatedSprite2D.animation_finished
 	attacking = false
@@ -116,6 +123,10 @@ func take_damage(amount: int, attacker: Node2D) -> void:
 	if health <= 0:
 		_die()
 	else:
+		# Play hurt sound
+		if $HurtSound:
+			$HurtSound.play()
+
 		var dir = (global_position - attacker.global_position).normalized()
 		knockback = dir * 200
 		knockback_time = 0.2
@@ -123,4 +134,9 @@ func take_damage(amount: int, attacker: Node2D) -> void:
 # --- Death ---
 func _die() -> void:
 	print("Player defeated!")
+
+	# Play die sound
+	if $DieSound:
+		$DieSound.play()
+
 	get_tree().change_scene_to_file("res://death_scene.tscn")

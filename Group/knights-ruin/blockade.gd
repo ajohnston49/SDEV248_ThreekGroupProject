@@ -23,6 +23,9 @@ func _check_conditions():
 
 func trigger_explode():
 	print("Blockade explodes!")
+	$RockSound.play()
 	$Animation.play("splode")
+	$SecretSound.play()
 	await $Animation.animation_finished
+	
 	queue_free()

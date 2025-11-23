@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cwrgbonof1wm6"]
+[gd_scene load_steps=17 format=3 uid="uid://cwrgbonof1wm6"]
 
 [ext_resource type="Script" uid="uid://vb3vggd5af5p" path="res://blockade.gd" id="1_fdm35"]
 [ext_resource type="Texture2D" uid="uid://ck2w15t3oowhu" path="res://blockade.png" id="1_tw277"]
 [ext_resource type="Texture2D" uid="uid://d0ep8tkr45jw3" path="res://Assets/sparkle.png" id="2_dxgg7"]
-[ext_resource type="Texture2D" uid="uid://d3dp72yjm5cod" path="res://Assets/splode.png" id="3_dxgg7"]
+[ext_resource type="Texture2D" uid="uid://ccmne0r1885bs" path="res://splode.png" id="4_fdm35"]
+[ext_resource type="AudioStream" uid="uid://cu3rdqsg1ktwj" path="res://rock.mp3" id="5_afx3a"]
+[ext_resource type="AudioStream" uid="uid://2kq3k3phhhv1" path="res://secret.mp3" id="6_qk6e5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdm35"]
 size = Vector2(509.11322, 190.44124)
@@ -24,21 +26,21 @@ region = Rect2(128, 0, 64, 64)
 atlas = ExtResource("2_dxgg7")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fdm35"]
-atlas = ExtResource("3_dxgg7")
-region = Rect2(64, 0, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_m64ms"]
-atlas = ExtResource("3_dxgg7")
-region = Rect2(0, 0, 64, 64)
+atlas = ExtResource("4_fdm35")
+region = Rect2(53, 0, 53, 53)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jxp68"]
-atlas = ExtResource("3_dxgg7")
-region = Rect2(192, 0, 64, 64)
+atlas = ExtResource("4_fdm35")
+region = Rect2(0, 0, 53, 53)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yyq5v"]
-atlas = ExtResource("3_dxgg7")
-region = Rect2(128, 0, 64, 64)
+atlas = ExtResource("4_fdm35")
+region = Rect2(106, 0, 53, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrh0y"]
+atlas = ExtResource("4_fdm35")
+region = Rect2(159, 0, 53, 53)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m64ms"]
 animations = [{
@@ -60,57 +62,87 @@ animations = [{
 "speed": 6.0
 }, {
 "frames": [{
-"duration": 0.61,
-"texture": SubResource("AtlasTexture_fdm35")
-}, {
-"duration": 0.61,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_m64ms")
 }, {
-"duration": 0.61,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jxp68")
 }, {
-"duration": 0.61,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yyq5v")
 }, {
-"duration": 0.61,
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrh0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyq5v")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jxp68")
 }, {
-"duration": 0.61,
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrh0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyq5v")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_m64ms")
 }, {
-"duration": 0.61,
-"texture": SubResource("AtlasTexture_yyq5v")
-}, {
-"duration": 0.61,
-"texture": SubResource("AtlasTexture_fdm35")
-}, {
-"duration": 0.61,
-"texture": SubResource("AtlasTexture_m64ms")
-}, {
-"duration": 0.61,
-"texture": SubResource("AtlasTexture_fdm35")
-}, {
-"duration": 0.61,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jxp68")
 }, {
-"duration": 0.61,
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrh0y")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yyq5v")
 }, {
-"duration": 0.61,
-"texture": SubResource("AtlasTexture_fdm35")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrh0y")
 }, {
-"duration": 0.61,
-"texture": SubResource("AtlasTexture_yyq5v")
-}, {
-"duration": 0.61,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_m64ms")
 }, {
-"duration": 0.61,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jxp68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyq5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrh0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyq5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxp68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrh0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyq5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m64ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxp68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrh0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyq5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrh0y")
 }],
 "loop": false,
 "name": &"splode",
-"speed": 5.0
+"speed": 6.5
 }]
 
 [node name="Blockade" type="StaticBody2D" groups=["Blockade"]]
@@ -133,3 +165,11 @@ rotation = -3.1415927
 scale = Vector2(3.5382771, -3.392368)
 sprite_frames = SubResource("SpriteFrames_m64ms")
 animation = &"splode"
+frame = 25
+frame_progress = 1.0
+
+[node name="RockSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_afx3a")
+
+[node name="SecretSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qk6e5")

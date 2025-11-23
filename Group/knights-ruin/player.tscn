@@ -1,8 +1,13 @@
-[gd_scene load_steps=29 format=3 uid="uid://b6ht144bclxvb"]
+[gd_scene load_steps=34 format=3 uid="uid://b6ht144bclxvb"]
 
 [ext_resource type="Texture2D" uid="uid://bej0cqmb4s3e7" path="res://Assets/Player/attack.png" id="1_b26j0"]
 [ext_resource type="Script" uid="uid://cq87oxfjh4g2l" path="res://player.gd" id="1_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cid4jrtqukbds" path="res://Assets/Player/idle.png" id="2_n7ghd"]
+[ext_resource type="AudioStream" uid="uid://ds2l0eu0pg6de" path="res://swoosh.mp3" id="5_1jxqw"]
+[ext_resource type="AudioStream" uid="uid://bn6hxexds4lvu" path="res://hurt.mp3" id="6_dw050"]
+[ext_resource type="AudioStream" uid="uid://b2okv7in4db5a" path="res://die.wav" id="7_b26j0"]
+[ext_resource type="AudioStream" uid="uid://cg4sdsmw7m3ds" path="res://hit.mp3" id="8_b26j0"]
+[ext_resource type="AudioStream" uid="uid://cvxumdlhnd08x" path="res://hit2.mp3" id="9_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://buer016q7v3o8" path="res://Assets/Player/run.png" id="9_op7ga"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q13i1"]
@@ -228,3 +233,18 @@ collision_mask = 2
 scale = Vector2(13.329311, 12.860249)
 shape = SubResource("CircleShape2D_sweqy")
 debug_color = Color(0.19938412, 0.6215191, 0.45714295, 0.41960785)
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_1jxqw")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dw050")
+
+[node name="DieSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_b26j0")
+
+[node name="BossHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_b26j0")
+
+[node name="EnemyHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_n7ghd")

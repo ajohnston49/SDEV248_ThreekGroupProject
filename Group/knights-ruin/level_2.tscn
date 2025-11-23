@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cp873ba10lqoi"]
+[gd_scene load_steps=20 format=3 uid="uid://cp873ba10lqoi"]
 
 [ext_resource type="Texture2D" uid="uid://bq71oy41dff1t" path="res://Assets/spr_tileset_sunnysideworld_16px.png" id="1_xdadj"]
 [ext_resource type="PackedScene" uid="uid://b6ht144bclxvb" path="res://player.tscn" id="2_1y8me"]
 [ext_resource type="PackedScene" uid="uid://duec66nsqxc6s" path="res://minotaur.tscn" id="3_n7ypv"]
 [ext_resource type="PackedScene" uid="uid://cwrgbonof1wm6" path="res://blockade.tscn" id="4_1y8me"]
 [ext_resource type="PackedScene" uid="uid://cewpfklk4mfax" path="res://win_trigger.tscn" id="5_n7ypv"]
+[ext_resource type="AudioStream" uid="uid://cuhs5jiy0ical" path="res://level2.mp3" id="6_0s5r2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0s5r2"]
 texture = ExtResource("1_xdadj")
@@ -8887,3 +8888,9 @@ shape = SubResource("RectangleShape2D_n7ypv")
 [node name="WinTrigger" parent="." instance=ExtResource("5_n7ypv")]
 position = Vector2(136, 90)
 win_scene = "res://level_2_win.tscn"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_0s5r2")
+autoplay = true
+stream_paused = true
+parameters/looping = true

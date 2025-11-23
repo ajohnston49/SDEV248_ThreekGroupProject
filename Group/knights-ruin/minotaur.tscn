@@ -377,7 +377,7 @@ shadow_color = Color(0.14406255, 0.14406255, 0.14406255, 0.6)
 shadow_size = 1
 shadow_offset = Vector2(1, 25)
 
-[node name="Minotaur" type="CharacterBody2D" groups=["Boss", "Enemy"]]
+[node name="Minotaur" type="CharacterBody2D" groups=["Boss"]]
 disable_mode = 2
 collision_layer = 2
 collision_mask = 7
