@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7e8cwi7ujqmi"]
+
+[ext_resource type="Script" uid="uid://delihn731pwsm" path="res://Scenes/main_menu.gd" id="1_28flt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_erv1k"]
+font_size = 35
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_28flt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 428.0
+offset_top = 387.99997
+offset_right = 524.0
+offset_bottom = 418.99997
+scale = Vector2(3.0893111, 2.8553743)
+text = "Start Game"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 259.0
+offset_top = 108.0
+offset_right = 469.0
+offset_bottom = 209.0
+scale = Vector2(3.0584538, 3.872237)
+text = "Battle Bozos
+"
+label_settings = SubResource("LabelSettings_erv1k")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

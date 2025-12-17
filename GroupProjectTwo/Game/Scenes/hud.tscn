@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd6db6ojvk6uj"]
+
+[ext_resource type="Script" uid="uid://bfqigty1sx0xu" path="res://Scripts/hud.gd" id="1_e0onf"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_e0onf")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health: "
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = 61.0
+offset_top = 1.0
+offset_right = 101.0
+offset_bottom = 24.0
+text = "100"
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 976.0
+offset_top = 46.0
+offset_right = 980.0
+offset_bottom = 73.0
+rotation = -1.5548083
+scale = Vector2(3.6551723, 3)

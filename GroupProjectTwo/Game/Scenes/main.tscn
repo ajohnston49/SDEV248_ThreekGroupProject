@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://gfga32pypx5k"]
+
+[ext_resource type="Script" uid="uid://qwk3wom6csrd" path="res://Scripts/main.gd" id="1_6bp64"]
+[ext_resource type="Texture2D" uid="uid://d2dfrj2c1s8lo" path="res://Assets/floor.jpg" id="1_21xkr"]
+[ext_resource type="PackedScene" uid="uid://py2btm6polpn" path="res://Scenes/player.tscn" id="2_6bp64"]
+[ext_resource type="PackedScene" uid="uid://b12fh41yfin4g" path="res://Scenes/ripper.tscn" id="3_344ge"]
+[ext_resource type="PackedScene" uid="uid://djuwj7ynvkejp" path="res://Scenes/skipper.tscn" id="4_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://n8bhbq3pxtel" path="res://Scenes/panda.tscn" id="6_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://cd6db6ojvk6uj" path="res://Scenes/hud.tscn" id="7_344ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6iyac"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdnlq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkdf5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsu2k"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(326, 8)
+scale = Vector2(2.4366689, 1)
+script = ExtResource("1_6bp64")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(108.755035, 318)
+scale = Vector2(0.43198162, 0.99985564)
+texture = ExtResource("1_21xkr")
+
+[node name="Player" parent="." instance=ExtResource("2_6bp64")]
+position = Vector2(-51.70994, 168)
+scale = Vector2(0.48084888, 1)
+
+[node name="Ripper" parent="." instance=ExtResource("3_344ge")]
+position = Vector2(283.1735, 77)
+scale = Vector2(0.42244327, 0.90223074)
+
+[node name="AnimatedSprite2D" parent="Ripper" index="0"]
+position = Vector2(-5.5789948e-05, -1.108364)
+
+[node name="Skipper" parent="." instance=ExtResource("4_ynf5e")]
+position = Vector2(280.30072, 489)
+scale = Vector2(0.4610421, 1)
+
+[node name="Panda" parent="." instance=ExtResource("6_d1ilt")]
+position = Vector2(-59.097073, 473)
+scale = Vector2(0.4819446, 1.2766957)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+scale = Vector2(35.135876, -1.4967275)
+shape = SubResource("RectangleShape2D_6iyac")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(89.05601, 632)
+scale = Vector2(52.583355, -0.91503465)
+shape = SubResource("RectangleShape2D_fdnlq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(-139.12436, 298)
+scale = Vector2(-1.2887493, 38.407715)
+shape = SubResource("RectangleShape2D_jkdf5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(346.37454, 464.99997)
+scale = Vector2(0.86683476, 45.99455)
+shape = SubResource("RectangleShape2D_wsu2k")
+
+[node name="HUD" parent="." instance=ExtResource("7_344ge")]
+
+[editable path="Player"]
+[editable path="Ripper"]
+[editable path="Skipper"]
+[editable path="Panda"]

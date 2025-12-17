@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://u184h4pybhe3"]
+
+[node name="LoseMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+
+[node name="RetryButton" type="Button" parent="CanvasLayer"]
+offset_left = 856.0
+offset_top = 456.0
+offset_right = 906.0
+offset_bottom = 487.0
+scale = Vector2(3.7620497, 3.608153)
+text = "Retry"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 19.0
+offset_top = 31.999996
+offset_right = 319.0
+offset_bottom = 185.0
+scale = Vector2(3.7275, 3.8741624)
+text = "We Lost... 
+
+Master Panda Would Be Disapointed....
+
+We Should Train More!
+And Try Again!"
